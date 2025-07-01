@@ -1,0 +1,210 @@
+  {% extends "profile_base.html" %} 
+{% block content %} 
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  .custom-height {
+    height: 200px;
+  }
+
+  .accordion {
+    background-color: #f8f9fa;
+  }
+
+  .accordion-header {
+    background-color: #007bff;
+    color: white;
+  }
+
+  .accordion-item {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+  }
+
+  .accordion-button {
+    font-size: 0.69em;
+    background-color: #ffffed;
+    color: #3a3b3c;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 1px solid black;
+  }
+
+  .accordion-body {
+    padding: 10px;
+  }
+
+  .stats-card {
+    background-color: #cce5ff;
+  }
+
+  .tools-card {
+    background-color: #c3e6cb;
+    min-width: 200px;
+  }
+
+  .external-info-card {
+    background-color: #ffd1dc;
+  }
+</style>
+<main class="d-flex flex-nowrap align-items-center flex-shrink-0 ">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; min-height: 100vh;">
+
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#"></use></svg>
+      <span class="fs-4">Sustainability Tracker</span>
+    </a>
+    <hr>
+
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="/profile" class="nav-link active" aria-current="page">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-person" viewBox="0 0 16 16">
+            <path d="M12 1a1 1 0 0 1 1 1v10.755S12 11 8 11s-5 1.755-5 1.755V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+            <path d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+          </svg>
+          <span class="text">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile/in-depth" class="nav-link text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart" viewBox="0 0 16 16">
+            <path d="M4 11H2v3h2zm5-4H7v7h2zm5-5v12h-2V2zm-2-1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM6 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/>
+          </svg>
+          <span class="text">Stats</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile/habit_tracker" class="nav-link text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+            <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+            <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
+            <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
+          </svg>
+          <span class="text">Habit Tracker</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile/calculator" class="nav-link text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+            <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+            <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          <span class="text">Carbon Footprint Calculator</span>
+        </a>
+      </li>
+      <li>
+        <a href="/profile/edit-profile" class="nav-link text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+          </svg>
+          <span class="text">Edit Profile</span>
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="/profile" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>{{ name }}</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+        <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="b-example-divider b-example-vr"></div>
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light col-md-10">
+    <div class="accordion accordion-flush mb-4" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed rounded-end" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne"> Stats </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body stats-card">
+          <div class="row w-50 mx-auto">
+            {% if values[3] != 0 %}
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">Amount <small style="color: green; font-size: 80%; font-weight: normal;">recent</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Total Public Transport Time</td>
+                        <td>{{ values[0] }} h
+                            {% if values[4] != 0 %}
+                                <small style="color: green; font-size: 80%;">+{{ values[4] }} h</small>{% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Total Energy Consumption</td>
+                        <td>{{ values[1] }} kWh
+                            {% if values[5] != 0 %}
+                                <small style="color: green; font-size: 80%;">+{{ values[5] }} kWh</small>{% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td>Total Waste Recycled</td>
+                        <td>{{ values[2] }} kg
+                            {% if values[6] != 0 %}
+                                <small style="color: green; font-size: 80%;">+{{ values[6] }} kg</small>{% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">4</th>
+                        <td>Total Days Recorded</td>
+                        <td>{{ values[3] }} time(s)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="col-xs-12">
+                <div class="progress" style="height: 20px;">
+                  <div class="progress-bar progress-bar-striped" role="progressbar" aria-label="xp_progress" style="width: {{ xp }}%; margin: 0; padding: 0;" aria-valuenow="{{ xp }}" aria-valuemin="0" aria-valuemax="100" aria-label="Example with label">
+                    <strong><span style="font-size: larger;">Level {{ level }} | {{ xp }}%</span></strong>
+                  </div>
+                </div>
+            </div>
+            {% endif %}
+            {% if values[3] == 0 %}     
+                <div class="alert alert-danger d-flex align-items-center justify-content-center w-80 mx-auto" role="alert">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:" style="width: 1.5em; height: 1.5em;">
+                    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                  </svg>
+                  <div>
+                    You currently have no entries filed. Make your first entry <a href="/profile/habit_tracker">here</a>
+                  </div>
+                </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item external-info-card">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed rounded-end" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree"> External Info </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">wip</div>
+    </div>
+  </div>
+    <div class="alert alert-info w-auto mx-auto" role="alert"> Sustainability Tip: {{ tip }}
+    </div>
+    </div>
+    </main>
+    <footer class="bg-dark text-light text-center py-3">
+    <p>&copy; 2023 Sustainability Tracker. All rights reserved.</p>
+    </footer>
+    {% endblock %}

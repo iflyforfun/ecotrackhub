@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block content %} <style>
+  #bannerCarousel {
+    height: 300px;
+    /* Adjust this value as needed */
+  }
+
+  #bannerCarousel img {
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Additional styles for fade transition */
+  .carousel-fade .carousel-inner .carousel-item {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+  }
+
+  .carousel-fade .carousel-inner .carousel-item.active {
+    opacity: 1;
+  }
+</style>
+<div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="4000">
+      <img src="https://static.vecteezy.com/system/resources/previews/007/577/924/original/banner-design-for-world-environment-day-earth-day-eco-friendly-and-sustainability-development-concept-illustration-vector.jpg" class="w-100" alt="Slide 1">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREV5leGaxe-YM435u6uvH82KtTQ4gt9r2W1A&usqp=CAU" class="w-100" alt="Slide 2">
+    </div>
+    <div class="carousel-item" data-bs-interval="4000">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnT6uhfTWqvgyn7BFbp_RZoEBOAUAHrrflSA&usqp=CAU" class="w-100" alt="Slide 3">
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<h1 class="title is-1"> EcoTrackHub </h1>
+<h5 class="title is-5"> Your one-stop site for tracking & analyzing sustainability in your daily lifestyle </h5>
+<footer class="bg-dark text-light text-center py-3">
+  <p>&copy; 2023 Sustainability Tracker. All rights reserved.</p>
+</footer> {% endblock %}

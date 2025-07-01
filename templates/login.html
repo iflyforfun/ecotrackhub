@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %} <div class="column is-4 is-offset-4 mt-4 mb-4">
+  <h2 class="title">Login</h2>
+  <hr>
+  <div class="box d-flex justify-content-center"> {% with messages = get_flashed_messages() %} {% if messages %} <div class="alert alert-danger" role="alert">
+      {{ messages[0] }}
+    </div> {% endif %} {% endwith %} </div>
+  <div class="box d-flex justify-content-center">
+    <div class="text-black w-25">
+      <form method="POST" action="/login">
+        <div class="form-floating mb-3">
+          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email" required>
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" name="password" class="form-control" id="floatingInput" placeholder="Password" required>
+          <label for="floatingInput">Password</label>
+        </div>
+        <div class="form-check d-flex justify-content-center text-white">
+          <input class="form-check-input me-3" type="checkbox" value="" id="flexCheckDefault">
+          <label class="form-check-label text-dark" for="flexCheckDefault">Remember me</label>
+        </div>
+        <button class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer class="bg-dark text-light text-center py-3">
+  <p>&copy; 2023 Sustainability Tracker. All rights reserved.</p>
+</footer> {% endblock %}

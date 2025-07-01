@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %} <div class="column is-4 is-offset-4 mt-4 mb-4">
+  <h2 class="title">Sign Up</h2>
+  <hr>
+  <div class="box d-flex justify-content-center"> {% with messages = get_flashed_messages() %} {% if messages %} <div class="alert alert-danger">
+      {{ messages[0] }}. Go to <a href="{{ url_for('login') }}">login page</a>
+    </div> {% endif %} {% endwith %} </div>
+  <div class="box d-flex justify-content-center">
+    <div class="text-black w-50">
+      <form method="POST" action="/signup">
+        <div class="form-floating mb-3">
+          <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Email" required>
+          <label for="floatingInput">Email</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" name="name" class="form-control" id="floatingInput" placeholder="Name" required>
+          <label for="floatingInput">Name</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" name="password" class="form-control" id="floatingInput" placeholder="Password" required>
+          <label for="floatingInput">Password</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" name="cfrmpassword" class="form-control" id="floatingInput" placeholder="Confirm Password" required>
+          <label for="floatingInput">Confirm Password</label>
+        </div>
+        <button class="btn btn-primary">Sign Up</button>
+      </form>
+    </div>
+  </div>
+</div>
+<footer class="bg-dark text-light text-center py-3">
+  <p>&copy; 2023 Sustainability Tracker. All rights reserved.</p>
+</footer> {% endblock %}

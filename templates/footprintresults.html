@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="mb-4">Results</h1>
+<h2>Your Carbon Footprint: {{ carbon_footprint }} tons CO2 per year</h2>
+<div class="mx-auto w-auto">
+    {% if carbon_footprint < 5 %}
+    <div class="alert alert-success mt-4" role="alert">
+        Great job! Your carbon footprint is low. Keep up the sustainable practices!
+    </div>
+    {% elif carbon_footprint >= 5 and carbon_footprint < 10 %}
+    <div class="alert alert-warning mt-4" role="alert">
+        Your carbon footprint is moderate. Consider adopting more eco-friendly habits to reduce it further.
+    </div>
+    {% else %}
+    <div class="alert alert-danger mt-4" role="alert">
+        Your carbon footprint is high. Explore ways to reduce energy consumption and live more sustainably.
+    </div>
+    {% endif %}
+</div>
+<div class="container text-center">
+    <button type="button" class="btn btn-primary mb-4" onclick="returnToCalculator()">Back to calculator</button>
+</div>
+<script>
+    function returnToCalculator() {
+        window.location.href = 'https://icas-2023.omanagario.repl.co/profile/calculator';
+    }
+</script>
+<footer class="bg-dark text-light text-center py-3">
+    <p>&copy; 2023 Sustainability Tracker. All rights reserved.</p>
+</footer>
+{% endblock %}
